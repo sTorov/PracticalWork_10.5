@@ -4,35 +4,24 @@
     {
         static void Main(string[] args)
         {
-            ILogger logger = new Logger();            
-            Calculator calculator = new Calculator();
-            calculator.operationEvent += logger.Result;
+            Calculator calculator = new Calculator(new Logger());
 
             while (true)
             {
-                try
-                {
-                    calculator.ReadValue();
+                calculator.ReadValue();
 
-                    Console.WriteLine("\nДля продолжения нажмите 'y'\nДля выхода нажмите любую другую клавишу");
-                    char ch = Console.ReadKey(true).KeyChar;
-                    switch (ch)
-                    {
-                        case 'y':
-                            Console.Clear();
-                            continue;
-                        default:
-                            break;
-                    }
-
-                    break;
-                }
-                catch (Exception e)
+                Console.WriteLine("\nДля продолжения нажмите 'y'\nДля выхода нажмите любую другую клавишу");
+                char ch = Console.ReadKey(true).KeyChar;
+                switch (ch)
                 {
-                    logger.Error(e);
-                    Console.ReadKey();
-                    Console.Clear();
+                    case 'y':
+                        Console.Clear();
+                        continue;
+                    default:
+                        break;
                 }
+
+                break;
             }            
         }        
     }
