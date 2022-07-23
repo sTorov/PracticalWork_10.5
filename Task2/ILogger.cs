@@ -2,8 +2,8 @@
 {
     public interface ILogger
     {
-        void Error(Exception e);
+        void Error(string message);
 
-        void Result(double result);
+        void Event(string message);
     }
 }

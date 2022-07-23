@@ -2,17 +2,17 @@
 {
     class Logger : ILogger
     {
-        public void Error(Exception e)
+        public void Error(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(e.Message);
+            Console.WriteLine(message);
             Console.ResetColor();
         }
 
-        public void Result(double result)
+        public void Event(string message)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Ответ: " + Math.Round(result, 6, MidpointRounding.AwayFromZero));
+            Console.WriteLine(message);
             Console.ResetColor();
         }
     }

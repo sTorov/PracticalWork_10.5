@@ -15,7 +15,7 @@
 
         public void Sum(double num1, double num2)
         {
-            Logger.Result(num1 + num2);
+            Logger.Event(new string("Ответ: " + Math.Round((num1 + num2), 6, MidpointRounding.AwayFromZero)));
         }
 
         public void ReadValue()
@@ -34,7 +34,9 @@
                     }
                     catch (Exception e)
                     {
-                        Logger.Error(e);                        
+                        Logger.Error(e.Message);
+                        Console.ReadKey();
+                        Other.ClearLine(2);
                         continue;
                     }
                 }                             
