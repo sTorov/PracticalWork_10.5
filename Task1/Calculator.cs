@@ -29,6 +29,8 @@
                     catch (Exception e)
                     {
                         PrintException(e);
+                        Console.ReadKey();
+                        Other.ClearLine(2);
                         continue;
                     }
                 }
