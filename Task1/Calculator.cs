@@ -1,7 +1,5 @@
 ﻿namespace Task1
 {
-    delegate double CheckValueDelegate(int oper);
-
     class Calculator : ICalculator
     {
         private double Number1 { get; set; }
@@ -14,7 +12,7 @@
 
         public void ReadValue()
         {
-            CheckValueDelegate checkValue = (int oper) =>
+            Func<int, double> checkValue = (int oper) =>
             {
                 while (true)
                 {

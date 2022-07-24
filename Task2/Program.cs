@@ -1,5 +1,8 @@
 ﻿namespace Task2
 {
+    /// <summary>
+    /// Основной класс программы
+    /// </summary>
     class Program
     {
         static ILogger logger { get; set; }
@@ -27,6 +30,21 @@
             }            
         }
 
+        /// <summary>
+        /// Проверка нажатой клавиши на корректность. При корректном нажатия возвращает символ нажатой клавиши<br/>
+        /// <br/>
+        /// Параметры метода<br/>
+        /// <br/>
+        /// <c>string message</c> - Выводимое сообщение на консоль перед началом проверки<br/>
+        /// <c>char[] charArray</c>: - Массив символов для проверки<br/>
+        /// <br/>
+        /// Данный метод будет выполнятся до тех пор, пока не будет нажата одна из клавиш, которая передаст в программу<br/>
+        /// символ, который содержится в <c>char[] charArray</c>. При нажатии неверной клавиши выводится предупреждение<br/> 
+        /// на консоль и происходит повторное нажате клавиши. Также, в методе происходит преобразоване символа в прописной.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="charArray"></param>
+        /// <returns></returns>
         static char GetPressKey(string message, char[] charArray)
         {
             const string WARNING = "Нажата неверная клавиша!";
@@ -35,18 +53,18 @@
             bool warningPrint = false;
             char returnChar;
 
+            Console.WriteLine();
+
             do
             {
                 Console.WriteLine(message);
 
-                returnChar = Console.ReadKey(true).KeyChar;
+                returnChar = char.ToUpper(Console.ReadKey(true).KeyChar);
                 foreach (var item in charArray)
                 {
-                    string temp = returnChar.ToString().ToUpper();
-                    if (temp[0] == item)
+                    if (returnChar == item)
                     {
                         check = true;
-                        returnChar = item;
                         break;
                     }
                 }

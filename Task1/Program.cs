@@ -25,23 +25,24 @@
         
         static char GetPressKey(string message, char[] charArray)
         {
-            bool check = false;
-            char returnChar;
-            bool warningPrint = false;
             const string WARNING = "Нажата неверная клавиша!";
+            
+            bool check = false;
+            bool warningPrint = false;
+            char returnChar;
+
+            Console.WriteLine();
 
             do
             {
                 Console.WriteLine(message);
 
-                returnChar = Console.ReadKey(true).KeyChar;
+                returnChar = char.ToUpper(Console.ReadKey(true).KeyChar);
                 foreach (var item in charArray)
                 {
-                    string temp = returnChar.ToString().ToUpper();
-                    if (temp[0] == item)
+                    if (returnChar == item)
                     {
-                        check = true;
-                        returnChar = item;
+                        check = true;                        
                         break;
                     }
                 }

@@ -1,5 +1,8 @@
 ﻿namespace Task2
 {
+    /// <summary>
+    /// Класс, реализующий интерфейс ILogger
+    /// </summary>
     class Logger : ILogger
     {
         public void Error(string message)

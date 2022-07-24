@@ -1,7 +1,9 @@
 ﻿namespace Task2
 {
-    delegate double CheckValueDelegate(int oper);
-
+    /// <summary>
+    /// Класс, реализующий интерфейс ICalculator<br/>
+    /// Реализация действий с 2-мя цифрами
+    /// </summary>
     class Calculator : ICalculator
     {       
         private double Number1 { get; set; }
@@ -18,9 +20,13 @@
             Logger.Event(new string("Ответ: " + Math.Round((num1 + num2), 6, MidpointRounding.AwayFromZero)));
         }
 
+        /// <summary>
+        /// Ввод 2-х цифр в консоль с клавиатуры и вызов метода, складывающего их<br/>
+        /// Проверка введённых значений на корректность
+        /// </summary>
         public void ReadValue()
         {
-            CheckValueDelegate checkValue = (int oper) =>
+            Func<int, double> checkValue = (int oper) =>
             {
                 while (true)
                 {
