@@ -60,13 +60,10 @@
                 Console.WriteLine(message);
 
                 returnChar = char.ToUpper(Console.ReadKey(true).KeyChar);
-                foreach (var item in charArray)
+                if (Array.Exists(charArray, ch => ch == returnChar))
                 {
-                    if (returnChar == item)
-                    {
-                        check = true;
-                        break;
-                    }
+                    check = true;
+                    break;
                 }
                 if (!check)
                 {
