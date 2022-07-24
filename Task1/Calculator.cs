@@ -1,5 +1,9 @@
 ﻿namespace Task1
 {
+    /// <summary>
+    /// Класс, реализующий интерфейс ICalculator<br/>
+    /// Выполнение операций над 2-мя цифрами
+    /// </summary>
     class Calculator : ICalculator
     {
         private double Number1 { get; set; }
@@ -10,6 +14,10 @@
             Console.WriteLine("Ответ: " + Math.Round((numberOne + numberTwo), 6, MidpointRounding.AwayFromZero));
         }
 
+        /// <summary>
+        /// Ввод 2-х цифр в консоль с клавиатуры и вызов метода, складывающего их<br/>
+        /// Проверка введённых значений на корректность
+        /// </summary>
         public void ReadValue()
         {
             Func<int, double> checkValue = (int oper) =>
@@ -40,7 +48,11 @@
             Sum(Number1, Number2);
         }
 
-        private void PrintException(Exception e)
+        /// <summary>
+        /// Вывод на консоль сообщения об ошибке с форматированием
+        /// </summary>
+        /// <param name="e"></param>
+        private static void PrintException(Exception e)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(e.Message);
